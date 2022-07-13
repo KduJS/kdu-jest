@@ -1,0 +1,75 @@
+{
+  "name": "kdu-jest",
+  "version": "1.0.2-rc.0",
+  "description": "Jest Kdu transform",
+  "main": "kdu-jest.js",
+  "keywords": [
+    "jest",
+    "kdu",
+    "jest kdu",
+    "jest kdu transform",
+    "jest kdu preprocessor",
+    "kdu jest",
+    "kdu jest",
+    "kdu jest transform",
+    "kdu jest preprocessor"
+  ],
+  "scripts": {
+    "lint": "eslint lib kdu-jest.js test",
+    "lint:fix": "npm run lint -- --fix",
+    "release": "build/release.sh",
+    "release:note": "node build/gen-release-note.js",
+    "test": "npm run lint && ./test.sh",
+    "unit": "./test.sh",
+    "unit:run": "jest test --no-cache --runInBand --coverage --coverageDirectory test/coverage"
+  },
+  "author": "NKDuy",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-plugin-istanbul": "^4.1.4",
+    "clear-module": "^2.1.0",
+    "coffee-script": "^1.12.7",
+    "conventional-changelog": "^1.1.5",
+    "eslint": "^4.3.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-kdu": "^4.0.0-beta.0",
+    "eslint-plugin-kdu-libs": "^1.2.1",
+    "jade": "^1.11.0",
+    "jest": "^20.0.4",
+    "kdu": "^2.5.13-alpha.0",
+    "kdu-template-compiler": "^2.5.13-alpha.0",
+    "kdu-test-utils": "git+https://github.com/kdujs/kdu-test-utils.git",
+    "pug": "^2.0.0-rc.3",
+    "typescript": "^2.5.2"
+  },
+  "peerDependencies": {
+    "kdu": "^2.x",
+    "kdu-template-compiler": "^2.x"
+  },
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-kdu-app": "^1.3.1-alpha.0",
+    "chalk": "^2.1.0",
+    "convert-source-map": "^1.5.0",
+    "find-babel-config": "^1.1.0",
+    "js-beautify": "^1.6.14",
+    "kdu-template-es2015-compiler": "^1.6.0-rc.0",
+    "node-cache": "^4.1.1",
+    "object-assign": "^4.1.1",
+    "source-map": "^0.5.6",
+    "tsconfig": "^7.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "kdu"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(kdu)$": "<rootDir>/kdu-jest.js"
+    },
+    "mapCoverage": true
+  }
+}
